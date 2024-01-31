@@ -136,8 +136,8 @@ async def on_message(message: discord.Message):
         await create_dm_thread(message, False)
 
     if message.guild.id == GUILD_ID:
-        if str(message.channel.type) in ["public_thread", "private_thread"]:
-            member = cast(discord.Member, message.guild.get_member(int(message.channel.name.split(":")[1])))
+        if str(message.channel.type) in ["public_thread", "private_thread"] and message.channel.parent_id == CREATE_DM_CHANNEL_ID:
+            member = message.guild.get_member(int(message.channel.name.split(":")[1]))
             if message.content == ".sclose":
                 embed = discord.Embed(title="DM Channel Silently Closed", description=f"DM Channel with {member} has been closed by the moderators of r/IGCSE, without notifying the user.", colour=discord.Colour.green())
                 embed.set_author(name=str(message.author), icon_url=message.author.display_avatar.url)
