@@ -10,7 +10,7 @@ import moderation
 import auto_moderation
 import on_member_join
 import on_ready
-import on_thread_join
+import on_thread_create
 import random_pyp
 import on_voice_state_update
 import gostudy
@@ -25,7 +25,7 @@ import hotm
 import locks
 import keywords
 import on_message
-import mcq
+import practice
 import chem_info
 
 def insert_returns(body):
